@@ -6,6 +6,13 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --brand: #3B2FE0;
+  --brand-light: #5B4FF5;
+  --brand-dark: #241C9E;
+  --brand-gradient: linear-gradient(135deg, #4338F5 0%, #6C5CE7 50%, #2E1FC7 100%);
+}
+
 body {
   color: #0b0b12;
   background: #ffffff;
@@ -62,4 +69,34 @@ button:focus-visible {
   outline: 2px solid #3b2fe0;
   outline-offset: 3px;
   border-radius: 6px;
+}
+
+/* Hero decorative images positioning */
+.hero-decor {
+  position: absolute;
+  filter: drop-shadow(0 30px 60px rgba(59,47,224,0.12));
+  opacity: 0.95;
+  transform-origin: center;
+}
+.hero-decor-right {
+  right: -6%;
+  top: 6%;
+  width: auto;
+  height: 88%;
+  transform: translateX(6%);
+}
+.hero-decor-left {
+  left: 4%;
+  bottom: -6%;
+  width: 46%;
+  height: auto;
+  transform: translateX(-4%);
+  opacity: 0.85;
+}
+
+@media (max-width: 1024px) {
+  .hero-decor-right,
+  .hero-decor-left {
+    display: none;
+  }
 }
