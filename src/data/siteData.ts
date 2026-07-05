@@ -23,28 +23,28 @@ export const services: ServiceItem[] = [
     description:
       "Fast, responsive, and SEO-friendly websites built using modern technologies.",
     icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "from-[#8B7CF6] to-[#5B4FF5]",
+    gradient: "",
   },
   {
     title: "App Development",
     description:
       "Native and cross-platform Android & iOS applications with premium user experience.",
     icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "from-[#22C1DC] to-[#1B8FD1]",
+    gradient: "",
   },
   {
     title: "Digital Marketing",
     description:
       "Performance-driven marketing strategies to increase traffic, leads, and revenue.",
     icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "from-[#FDBB2D] to-[#F58529]",
+    gradient: "",
   },
   {
     title: "Graphics Designing",
     description:
       "Beautiful, user-centered interfaces that improve engagement and conversions.",
     icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "from-[#F35CA0] to-[#C13584]",
+    gradient: "",
   },
 ];
 
@@ -54,42 +54,42 @@ export const whyChooseUs: WhyChooseItem[] = [
     description:
       "We offer competitive pricing without compromising on quality, ensuring the best value for your investment.",
     icon: "/assets/why-choose/affordable pricing.png",
-    gradient: "from-[#34D399] to-[#059669]",
+    gradient: "",
   },
   {
     title: "Fast Delivery",
     description:
       "We value your time and ensure on-time project delivery without compromising on quality.",
     icon: "/assets/why-choose/fast dilevery.png",
-    gradient: "from-[#FB7185] to-[#E11D48]",
+    gradient: "",
   },
   {
     title: "Latest Technologies",
     description:
       "We use the latest tools and technologies to build modern, scalable, and future-ready solutions.",
     icon: "/assets/why-choose/latest technology.png",
-    gradient: "from-[#60A5FA] to-[#2563EB]",
+    gradient: "",
   },
   {
     title: "Secure Solutions",
     description:
       "Security is our priority. We build robust and secure solutions to protect your data and business.",
     icon: "/assets/why-choose/secure solutions.png",
-    gradient: "from-[#A78BFA] to-[#7C3AED]",
+    gradient: "",
   },
   {
     title: "24/7 Support",
     description:
       "Our support team is available round the clock to assist you whenever you need help.",
     icon: "/assets/why-choose/supprt.png",
-    gradient: "from-[#38BDF8] to-[#0284C7]",
+    gradient: "",
   },
   {
     title: "Dedicated Team",
     description:
       "Our passionate team is committed to delivering high-quality digital solutions with creativity, attention to detail, and a client-first approach.",
     icon: "/assets/why-choose/team.png",
-    gradient: "from-[#FBBF24] to-[#D97706]",
+    gradient: "",
   },
 ];
 

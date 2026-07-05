@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { stats } from "@/data/siteData";
+import Image from "next/image";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -18,6 +19,13 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section id="home" className="relative overflow-hidden bg-white">
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        <div className="hidden lg:block">
+          <Image src="/assets/bg-1.png" alt="decor" width={900} height={900} className="hero-decor hero-decor-right" priority />
+          <Image src="/assets/bg-2.jpg" alt="decor-2" width={640} height={640} className="hero-decor hero-decor-left" priority />
+        </div>
+      </div>
+
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-16 lg:grid-cols-2 lg:px-10 lg:py-24">
         <div>
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
