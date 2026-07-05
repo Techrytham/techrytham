@@ -1,0 +1,55 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Eyebrow from "@/components/ui/Eyebrow";
+import IconBadge3D from "@/components/ui/IconBadge3D";
+import { services } from "@/data/siteData";
+
+export default function Services() {
+  return (
+    <section id="services" className="bg-white py-20">
+      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+        <div className="mx-auto max-w-2xl text-center">
+          <Eyebrow>Services</Eyebrow>
+          <h2 className="mt-5 text-3xl font-bold text-ink sm:text-4xl">
+            End-to-End Digital Solution for Your{" "}
+            <span className="bg-brand-gradient bg-clip-text text-transparent">Business</span>
+          </h2>
+          <span className="mx-auto mt-4 block h-1 w-14 rounded-full bg-brand-gradient" />
+          <p className="mt-6 text-muted">
+            At <span className="font-semibold text-brand">Techrytham</span>, we combine
+            creativity, technology, and strategy to deliver digital solutions that help
+            businesses grow faster and smarter.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {services.map((service, i) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="glow-card rounded-2xl border border-black/5 bg-white p-7 shadow-card"
+            >
+              <IconBadge3D icon={service.icon} gradient={service.gradient} />
+              <h3 className="mt-5 text-base font-semibold text-ink">{service.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">{service.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-10 text-center">
+          <a
+            href="#portfolio"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline"
+          >
+            LEARN MORE <ArrowRight size={16} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
