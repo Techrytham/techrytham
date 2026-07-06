@@ -1,30 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Instagram, Twitter, Facebook, Send } from "lucide-react";
+import { Send } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
-
-const infoItems = [
-  {
-    icon: Mail,
-    title: "Email",
-    value: "Techrytham.com@gmail.com",
-  },
-  {
-    icon: Phone,
-    title: "Call us",
-    value: "+91-9685933664 / +91-9039135773",
-  },
-  {
-    icon: MapPin,
-    title: "Location",
-    value: "Nagpur, Maharashtra (M.H) India",
-  },
-];
+import { contactInfo, socialLinks } from "@/data/siteData";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-surface py-20">
+    <section id="contact" className="bg-backgroundLight py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           <motion.div
@@ -34,43 +18,72 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <Eyebrow>Contact Us</Eyebrow>
-            <h2 className="mt-5 text-3xl font-bold text-ink sm:text-4xl">
+            <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
               Let&apos;s Start Your Next Big{" "}
-              <span className="bg-brand-gradient bg-clip-text text-transparent">Project</span>
+              <span className="bg-[var(--button-gradient)] bg-clip-text text-transparent">
+                Project
+              </span>
             </h2>
-            <span className="mt-4 block h-1 w-14 rounded-full bg-brand-gradient" />
-            <p className="mt-6 max-w-md text-muted">
+            <span className="mt-4 block h-1 w-14 rounded-full bg-[var(--button-gradient)]" />
+            <p className="mt-6 max-w-md text-paragraph">
               Have a project in mind or want to know more about how we can help your business?
               Get in touch with us today!
             </p>
 
             <div className="mt-8 space-y-6">
-              {infoItems.map((item) => (
+              {contactInfo.map((item) => (
                 <div key={item.title} className="flex items-center gap-4">
-                  <div className="icon-3d-wrap">
-                    <div className="icon-3d flex h-11 w-11 items-center justify-center rounded-full bg-brand-gradient text-white shadow-3d">
-                      <item.icon size={18} />
+                  <div className="icon-3d-wrap shrink-0">
+                    <div className="icon-3d relative h-11 w-11">
+                      <Image
+                        src={item.iconSrc}
+                        alt={item.title}
+                        fill
+                        className="object-contain"
+                        sizes="44px"
+                      />
                     </div>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-ink">{item.title}</p>
-                    <p className="text-sm text-muted">{item.value}</p>
+                    <p className="text-sm font-semibold text-heading">{item.title}</p>
+                    <p className="text-sm text-paragraph">{item.value}</p>
                   </div>
                 </div>
               ))}
 
               <div className="flex items-center gap-4">
-                <div className="icon-3d-wrap">
-                  <div className="icon-3d flex h-11 w-11 items-center justify-center rounded-full bg-brand-gradient text-white shadow-3d">
-                    <Instagram size={18} />
+                <div className="icon-3d-wrap shrink-0">
+                  <div className="icon-3d relative h-11 w-11">
+                    <Image
+                      src="/assets/contact/follow-us_5969080 1.png"
+                      alt="Follow us"
+                      fill
+                      className="object-contain"
+                      sizes="44px"
+                    />
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-ink">Follow us</p>
-                  <div className="flex gap-3 text-sm text-muted">
-                    <a href="#" className="hover:text-brand">@techrytham</a>
-                    <a href="#" className="hover:text-brand">techrythamX</a>
-                    <a href="#" className="hover:text-brand">techrytham</a>
+                  <p className="text-sm font-semibold text-heading">Follow us</p>
+                  <div className="mt-1 flex gap-2">
+                    {socialLinks.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        aria-label={social.label}
+                        className="icon-3d-wrap"
+                      >
+                        <div className="icon-3d relative h-8 w-8 transition-opacity hover:opacity-80">
+                          <Image
+                            src={social.iconSrc}
+                            alt={social.label}
+                            fill
+                            className="object-contain"
+                            sizes="32px"
+                          />
+                        </div>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -83,38 +96,38 @@ export default function Contact() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
             onSubmit={(e) => e.preventDefault()}
-            className="rounded-3xl border border-black/5 bg-white p-8 shadow-card"
+            className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-8"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <input
                 type="text"
                 placeholder="Your Name"
-                className="rounded-xl border border-black/10 bg-surface px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
+                className="rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
               <input
                 type="tel"
                 placeholder="Your Phone"
-                className="rounded-xl border border-black/10 bg-surface px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
+                className="rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
             </div>
             <input
               type="email"
               placeholder="Your Email"
-              className="mt-5 w-full rounded-xl border border-black/10 bg-surface px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
+              className="mt-5 w-full rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
             />
             <input
               type="text"
               placeholder="Your Subject"
-              className="mt-5 w-full rounded-xl border border-black/10 bg-surface px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
+              className="mt-5 w-full rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
             />
             <textarea
               placeholder="Your Message"
               rows={5}
-              className="mt-5 w-full resize-none rounded-xl border border-black/10 bg-surface px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
+              className="mt-5 w-full resize-none rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
             />
             <button
               type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-gradient px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_-8px_rgba(59,47,224,0.55)] transition-transform hover:-translate-y-0.5"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--button-gradient)] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_-8px_rgba(59,67,255,0.55)] transition-transform hover:-translate-y-0.5"
             >
               Send Message <Send size={16} />
             </button>

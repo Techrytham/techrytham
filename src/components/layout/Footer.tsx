@@ -1,89 +1,136 @@
-import { Instagram, Linkedin, Facebook, Twitter, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 import Logo from "@/components/ui/Logo";
-import { quickLinks, footerServices, supportLinks } from "@/data/siteData";
+import {
+  quickLinks,
+  footerServices,
+  supportLinks,
+  socialLinks,
+  contactInfo,
+} from "@/data/siteData";
+
+const footerSocialOrder = ["Instagram", "LinkedIn", "Facebook", "Twitter"];
 
 export default function Footer() {
+  const orderedSocial = footerSocialOrder
+    .map((label) => socialLinks.find((s) => s.label === label))
+    .filter(Boolean) as typeof socialLinks;
+
   return (
-    <footer className="border-t border-black/5 bg-white">
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
-        <div className="grid grid-cols-2 gap-10 sm:grid-cols-2 lg:grid-cols-5">
-          <div className="col-span-2">
-            <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              We build digital solutions that help businesses grow, engage their audience and
-              achieve long-term success.
-            </p>
-            <div className="mt-5 flex gap-3">
-              {[Instagram, Linkedin, Facebook, Twitter].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  aria-label="social link"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-surface text-ink transition-colors hover:bg-brand hover:text-white"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
+    <footer className="bg-backgroundLight px-6 py-12 lg:px-10">
+      <div className="mx-auto max-w-7xl">
+        <div className="overflow-hidden rounded-[18px] border border-[#ECECFF] bg-white shadow-[0_10px_25px_rgba(0,0,0,0.05)]">
+          <div className="p-8 lg:p-10">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-0">
+              {/* Brand */}
+              <div className="lg:border-r lg:border-border lg:pr-8">
+                <Logo />
+                <p className="mt-4 max-w-[240px] text-sm leading-relaxed text-paragraph">
+                  We build digital solutions that help businesses grow, engage their audience
+                  and achieve long-term success.
+                </p>
+                <div className="mt-5 flex gap-2.5">
+                  {orderedSocial.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      aria-label={social.label}
+                      className="flex h-9 w-9 items-center justify-center rounded-full transition-opacity hover:opacity-80"
+                    >
+                      <div className="relative h-9 w-9">
+                        <Image
+                          src={social.iconSrc}
+                          alt={social.label}
+                          fill
+                          className="object-contain"
+                          sizes="36px"
+                        />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {/* Quick Links */}
+              <div className="lg:px-8">
+                <h4 className="mb-4 text-sm font-bold text-heading">Quick Links</h4>
+                <ul className="space-y-2.5">
+                  {quickLinks.map((l) => (
+                    <li key={l.label}>
+                      <a
+                        href={l.href}
+                        className="text-sm text-paragraph transition-colors hover:text-primary"
+                      >
+                        {l.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Services */}
+              <div className="lg:px-8">
+                <h4 className="mb-4 text-sm font-bold text-heading">Services</h4>
+                <ul className="space-y-2.5">
+                  {footerServices.map((s) => (
+                    <li key={s}>
+                      <a
+                        href="#services"
+                        className="text-sm text-paragraph transition-colors hover:text-primary"
+                      >
+                        {s}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Support */}
+              <div className="lg:border-r lg:border-border lg:px-8">
+                <h4 className="mb-4 text-sm font-bold text-heading">Support</h4>
+                <ul className="space-y-2.5">
+                  {supportLinks.map((s) => (
+                    <li key={s}>
+                      <a
+                        href="#"
+                        className="text-sm text-paragraph transition-colors hover:text-primary"
+                      >
+                        {s}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact info */}
+              <div className="lg:pl-8">
+                <h4 className="mb-4 text-sm font-bold text-heading">Contact info</h4>
+                <ul className="space-y-4">
+                  {contactInfo.map((item) => (
+                    <li key={item.title} className="flex items-start gap-3">
+                      <div className="relative mt-0.5 h-9 w-9 shrink-0">
+                        <Image
+                          src={item.iconSrc}
+                          alt={item.title}
+                          fill
+                          className="object-contain"
+                          sizes="36px"
+                        />
+                      </div>
+                      <span className="text-sm leading-relaxed text-paragraph">{item.value}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom bar */}
+            <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 text-xs text-paragraph sm:flex-row">
+              <p>© 2025 Techrytham. All rights reserved.</p>
+              <p>
+                Made with <span className="text-red-500">❤️</span> by Techrytham Team
+              </p>
             </div>
           </div>
-
-          <div>
-            <h4 className="mb-4 text-sm font-semibold text-ink">Quick Links</h4>
-            <ul className="space-y-2.5">
-              {quickLinks.map((l) => (
-                <li key={l.label}>
-                  <a href={l.href} className="text-sm text-muted hover:text-brand">
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 text-sm font-semibold text-ink">Services</h4>
-            <ul className="space-y-2.5">
-              {footerServices.map((s) => (
-                <li key={s}>
-                  <a href="#services" className="text-sm text-muted hover:text-brand">
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="mb-4 text-sm font-semibold text-ink">Support</h4>
-            <ul className="space-y-2.5">
-              {supportLinks.map((s) => (
-                <li key={s}>
-                  <a href="#" className="text-sm text-muted hover:text-brand">
-                    {s}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 grid gap-4 border-t border-black/5 pt-8 sm:grid-cols-3">
-          <div className="flex items-center gap-3 text-sm text-muted">
-            <Mail size={16} className="text-brand" /> techrytham.com@gmail.com
-          </div>
-          <div className="flex items-center gap-3 text-sm text-muted">
-            <Phone size={16} className="text-brand" /> +91-9685933664 / +91-9039135773
-          </div>
-          <div className="flex items-center gap-3 text-sm text-muted">
-            <MapPin size={16} className="text-brand" /> Nagpur, Maharashtra (M.H) India
-          </div>
-        </div>
-
-        <div className="mt-8 flex flex-col items-center justify-between gap-3 border-t border-black/5 pt-6 text-xs text-muted sm:flex-row">
-          <p>© 2025 Techrytham. All rights reserved.</p>
-          <p>
-            Made with <span className="text-red-500">♥</span> by Techrytham Team
-          </p>
         </div>
       </div>
     </footer>

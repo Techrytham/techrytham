@@ -12,6 +12,7 @@ const techIcons: Record<string, string> = {
   flutter: "/assets/technologies/Flutter_logo_text.png",
   mongodb: "/assets/technologies/Mongodb-PNG-Free-Image.png",
   firebase: "/assets/technologies/firebase-logo-600x173.png",
+  aws: "/assets/technologies/Amazon-Web-Services-AWS-Logo-Transparent-PNG.png",
 };
 
 export default function TechIcon({ name, className = "h-9 w-9" }: TechIconProps) {

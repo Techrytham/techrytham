@@ -1,24 +1,21 @@
-import type { LucideIcon } from "lucide-react";
-
 export interface ServiceItem {
   title: string;
   description: string;
-  icon: string;
-  gradient: string;
+  spriteCol: number;
+  spriteRow?: number;
 }
 
 export interface WhyChooseItem {
   title: string;
   description: string;
-  icon: string;
-  gradient: string;
+  iconSrc: string;
 }
 
 export interface ProcessStep {
   number: string;
   title: string;
   description: string;
-  icon: string;
+  iconSrc: string;
 }
 
 export interface PortfolioItem {
@@ -40,11 +37,22 @@ export interface Testimonial {
 export interface AboutCard {
   title: string;
   description: string;
-  icon: string;
-  gradient: string;
+  iconSrc: string;
 }
 
 export interface TechItem {
   name: string;
   icon: string;
+}
+
+export interface ContactInfoItem {
+  title: string;
+  value: string;
+  iconSrc: string;
+}
+
+export interface SocialLink {
+  label: string;
+  href: string;
+  iconSrc: string;
 }

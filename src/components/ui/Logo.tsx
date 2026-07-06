@@ -6,7 +6,7 @@ export default function Logo({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center ${className}`}>
       <Image
-        src="/logo.png"
+        src="/assets/Logo.png"
         alt="Techrytham Logo"
         width={240}
         height={60}

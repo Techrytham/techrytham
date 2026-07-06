@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
-import IconBadge3D from "@/components/ui/IconBadge3D";
+import ServiceSpriteIcon from "@/components/ui/ServiceSpriteIcon";
 import { services } from "@/data/siteData";
 
 export default function Services() {
@@ -12,13 +12,15 @@ export default function Services() {
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow>Services</Eyebrow>
-          <h2 className="mt-5 text-3xl font-bold text-ink sm:text-4xl">
+          <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
             End-to-End Digital Solution for Your{" "}
-            <span className="bg-brand-gradient bg-clip-text text-transparent">Business</span>
+            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text text-transparent">
+              Business
+            </span>
           </h2>
-          <span className="mx-auto mt-4 block h-1 w-14 rounded-full bg-brand-gradient" />
-          <p className="mt-6 text-muted">
-            At <span className="font-semibold text-brand">Techrytham</span>, we combine
+          <span className="mx-auto mt-4 block h-1 w-14 rounded-full bg-[var(--button-gradient)]" />
+          <p className="mt-6 text-paragraph">
+            At <span className="font-semibold text-primary">Techrytham</span>, we combine
             creativity, technology, and strategy to deliver digital solutions that help
             businesses grow faster and smarter.
           </p>
@@ -32,11 +34,15 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glow-card rounded-2xl border border-black/5 bg-white p-7 shadow-card"
+              className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-7"
             >
-              <IconBadge3D icon={service.icon} gradient={service.gradient} />
-              <h3 className="mt-5 text-base font-semibold text-ink">{service.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">{service.description}</p>
+              <ServiceSpriteIcon
+                col={service.spriteCol}
+                row={service.spriteRow}
+                alt={service.title}
+              />
+              <h3 className="mt-5 text-base font-semibold text-heading">{service.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-paragraph">{service.description}</p>
             </motion.div>
           ))}
         </div>
@@ -44,7 +50,7 @@ export default function Services() {
         <div className="mt-10 text-center">
           <a
             href="#portfolio"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
           >
             LEARN MORE <ArrowRight size={16} />
           </a>

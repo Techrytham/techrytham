@@ -5,8 +5,8 @@ export default function Technologies() {
   const loop = [...technologies, ...technologies];
 
   return (
-    <section className="border-y border-black/5 bg-surface py-10">
-      <p className="mb-6 text-center text-sm font-semibold tracking-wide text-brand">
+    <section className="border-y  py-10">
+      <p className="mb-6 text-center text-lg font-semibold tracking-wide text-primary">
         TECHNOLOGIES WE WORK WITH
       </p>
       <div className="relative overflow-hidden">
@@ -14,7 +14,7 @@ export default function Technologies() {
           {loop.map((tech, i) => (
             <div key={`${tech.name}-${i}`} className="flex items-center gap-2 whitespace-nowrap">
               <TechIcon name={tech.icon} />
-              <span className="text-lg font-semibold text-ink/80">{tech.name}</span>
+              <span className="text-lg font-semibold text-heading/80">{tech.name}</span>
             </div>
           ))}
         </div>

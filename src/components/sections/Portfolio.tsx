@@ -14,15 +14,19 @@ export default function Portfolio() {
     <section id="portfolio" className="bg-white pb-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-bold text-ink sm:text-4xl">
+          <Eyebrow>Portfolio</Eyebrow>
+          <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
             Featured{" "}
-            <span className="bg-brand-gradient bg-clip-text text-transparent">Projects</span> We&apos;re
-            Proud Of
+            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text text-transparent">
+              Projects
+            </span>{" "}
+            We&apos;re Proud Of
           </h2>
-          <span className="mx-auto mt-4 block h-1 w-14 rounded-full bg-brand-gradient" />
-          <p className="mt-6 text-muted">
+          <span className="mx-auto mt-4 block h-1 w-14 rounded-full bg-[var(--button-gradient)]" />
+          <p className="mt-6 text-paragraph">
             Here are some of the amazing projects we&apos;ve worked on, helping brands grow and
-            succeed in the <span className="font-semibold text-brand">digital world.</span>
+            succeed in the{" "}
+            <span className="font-semibold text-primary">digital world.</span>
           </p>
         </div>
 
@@ -32,15 +36,18 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            className="glow-card overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card"
+            className="glow-card overflow-hidden rounded-[18px] border border-[#ECECFF] bg-white"
           >
             <div className="relative h-64 w-full">
               <Image src={large.image} alt={large.title} fill className="object-cover" />
             </div>
             <div className="p-6">
-              <h3 className="text-lg font-semibold text-ink">{large.title}</h3>
-              <p className="mt-2 text-sm text-muted">{large.description}</p>
-              <a href="#" className="mt-3 inline-block text-sm font-semibold text-brand hover:underline">
+              <h3 className="text-lg font-semibold text-heading">{large.title}</h3>
+              <p className="mt-2 text-sm text-paragraph">{large.description}</p>
+              <a
+                href="#"
+                className="mt-3 inline-block text-sm font-semibold text-primary hover:underline"
+              >
                 {large.category}
               </a>
             </div>
@@ -54,15 +61,18 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glow-card flex overflow-hidden rounded-2xl border border-black/5 bg-white shadow-card"
+                className="glow-card flex overflow-hidden rounded-[18px] border border-[#ECECFF] bg-white"
               >
                 <div className="relative h-full w-2/5 min-h-[130px]">
                   <Image src={item.image} alt={item.title} fill className="object-cover" />
                 </div>
                 <div className="w-3/5 p-5">
-                  <h3 className="text-base font-semibold text-ink">{item.title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-muted">{item.description}</p>
-                  <a href="#" className="mt-2 inline-block text-xs font-semibold text-brand hover:underline">
+                  <h3 className="text-base font-semibold text-heading">{item.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-paragraph">{item.description}</p>
+                  <a
+                    href="#"
+                    className="mt-2 inline-block text-xs font-semibold text-primary hover:underline"
+                  >
                     {item.category}
                   </a>
                 </div>

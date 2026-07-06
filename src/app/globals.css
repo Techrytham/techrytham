@@ -25,7 +25,7 @@ body {
 
 /* Section eyebrow pill */
 .eyebrow {
-  @apply inline-block rounded-full bg-brand-gradient px-5 py-1.5 text-xs font-semibold tracking-wide text-white shadow-md;
+  @apply inline-block rounded-full bg-[#5555DE3B] px-5 py-1.5 text-xs font-semibold tracking-wide text-[#0000FFCC] shadow-md;
 }
 
 /* 3D icon badge -- perspective wrapper used across cards */

@@ -6,6 +6,8 @@ import type {
   Testimonial,
   AboutCard,
   TechItem,
+  ContactInfoItem,
+  SocialLink,
 } from "@/types";
 
 export const technologies: TechItem[] = [
@@ -15,6 +17,7 @@ export const technologies: TechItem[] = [
   { name: "Flutter", icon: "flutter" },
   { name: "MongoDB", icon: "mongodb" },
   { name: "Firebase", icon: "firebase" },
+  { name: "AWS", icon: "aws" },
 ];
 
 export const services: ServiceItem[] = [
@@ -22,29 +25,29 @@ export const services: ServiceItem[] = [
     title: "Website Development",
     description:
       "Fast, responsive, and SEO-friendly websites built using modern technologies.",
-    icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "",
+    spriteCol: 0,
+    spriteRow: 0,
   },
   {
     title: "App Development",
     description:
       "Native and cross-platform Android & iOS applications with premium user experience.",
-    icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "",
+    spriteCol: 1,
+    spriteRow: 0,
   },
   {
     title: "Digital Marketing",
     description:
       "Performance-driven marketing strategies to increase traffic, leads, and revenue.",
-    icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "",
+    spriteCol: 3,
+    spriteRow: 0,
   },
   {
     title: "Graphics Designing",
     description:
       "Beautiful, user-centered interfaces that improve engagement and conversions.",
-    icon: "/assets/services/ChatGPT Image Jul 2, 2026, 10_43_31 AM.png",
-    gradient: "",
+    spriteCol: 2,
+    spriteRow: 0,
   },
 ];
 
@@ -53,43 +56,37 @@ export const whyChooseUs: WhyChooseItem[] = [
     title: "Affordable Pricing",
     description:
       "We offer competitive pricing without compromising on quality, ensuring the best value for your investment.",
-    icon: "/assets/why-choose/affordable pricing.png",
-    gradient: "",
+    iconSrc: "/assets/why-choose/affordable pricing.png",
   },
   {
     title: "Fast Delivery",
     description:
       "We value your time and ensure on-time project delivery without compromising on quality.",
-    icon: "/assets/why-choose/fast dilevery.png",
-    gradient: "",
+    iconSrc: "/assets/why-choose/fast dilevery.png",
   },
   {
     title: "Latest Technologies",
     description:
       "We use the latest tools and technologies to build modern, scalable, and future-ready solutions.",
-    icon: "/assets/why-choose/latest technology.png",
-    gradient: "",
+    iconSrc: "/assets/why-choose/latest technology.png",
   },
   {
     title: "Secure Solutions",
     description:
       "Security is our priority. We build robust and secure solutions to protect your data and business.",
-    icon: "/assets/why-choose/secure solutions.png",
-    gradient: "",
+    iconSrc: "/assets/why-choose/secure solutions.png",
   },
   {
     title: "24/7 Support",
     description:
       "Our support team is available round the clock to assist you whenever you need help.",
-    icon: "/assets/why-choose/supprt.png",
-    gradient: "",
+    iconSrc: "/assets/why-choose/supprt.png",
   },
   {
     title: "Dedicated Team",
     description:
       "Our passionate team is committed to delivering high-quality digital solutions with creativity, attention to detail, and a client-first approach.",
-    icon: "/assets/why-choose/team.png",
-    gradient: "",
+    iconSrc: "/assets/why-choose/team.png",
   },
 ];
 
@@ -99,42 +96,42 @@ export const processSteps: ProcessStep[] = [
     title: "Discover",
     description:
       "We understand your business, goals, target audience, and project requirements to build a strong foundation for success.",
-    icon: "/assets/process/chat-bubble_17722301.png",
+    iconSrc: "/assets/process/chat-bubble_17722301.png",
   },
   {
     number: "02",
     title: "Plan",
     description:
       "We analyze your requirements, create a clear strategy, define the project roadmap, and set realistic timelines for smooth execution.",
-    icon: "/assets/process/list_4458168.png",
+    iconSrc: "/assets/process/list_4458168.png",
   },
   {
     number: "03",
     title: "Design",
     description:
       "Our designers create modern, user-friendly, and visually engaging interfaces that reflect your brand identity and provide an excellent user experience.",
-    icon: "/assets/process/pen-tool_10336315.png",
+    iconSrc: "/assets/process/pen-tool_10336315.png",
   },
   {
     number: "04",
     title: "Develop",
     description:
       "We transform designs into powerful digital products using the latest technologies, clean coding standards, and scalable architecture.",
-    icon: "/assets/process/coding_156675.png",
+    iconSrc: "/assets/process/coding_156675.png",
   },
   {
     number: "05",
     title: "Test",
     description:
       "Every feature is carefully tested to ensure high performance, security, responsiveness, and a bug-free experience before launch.",
-    icon: "/assets/process/file_4914109.png",
+    iconSrc: "/assets/process/file_4914109.png",
   },
   {
     number: "06",
     title: "Launch & Support",
     description:
-      "We understand your business, goals, target audience, and project requirements to build a strong foundation for success.",
-    icon: "/assets/process/project-launch_10934009.png",
+      "We deliver long-term support to ensure your product launches successfully and continues to grow after deployment.",
+    iconSrc: "/assets/process/project-launch_10934009.png",
   },
 ];
 
@@ -195,28 +192,65 @@ export const aboutCards: AboutCard[] = [
     title: "Our Mission",
     description:
       "To empower businesses with innovative digital solutions that drive growth and success.",
-    icon: "/assets/about/our mission.png",
-    gradient: "from-[#FB7185] to-[#E11D48]",
+    iconSrc: "/assets/about/our mission.png",
   },
   {
     title: "Our Vision",
     description: "To be a global leader in digital transformation and technology innovation.",
-    icon: "/assets/about/our vision.png",
-    gradient: "from-[#FBBF24] to-[#D97706]",
+    iconSrc: "/assets/about/our vision.png",
   },
   {
     title: "Our Values",
     description:
       "We value integrity, creativity, collaboration and delivering excellence in everything we do.",
-    icon: "/assets/about/our values.png",
-    gradient: "from-[#F472B6] to-[#DB2777]",
+    iconSrc: "/assets/about/our values.png",
   },
   {
     title: "Our Approach",
     description:
       "We listen, we plan, we build and we grow together with your business.",
-    icon: "/assets/about/our approach.png",
-    gradient: "from-[#60A5FA] to-[#2563EB]",
+    iconSrc: "/assets/about/our approach.png",
+  },
+];
+
+export const contactInfo: ContactInfoItem[] = [
+  {
+    title: "Email",
+    value: "techrytham.com@gmail.com",
+    iconSrc: "/assets/contact/send-mail_10505676 1.png",
+  },
+  {
+    title: "Call us",
+    value: "+91-9685933664 / +91-9039135773",
+    iconSrc: "/assets/contact/call_3575348 1.png",
+  },
+  {
+    title: "Location",
+    value: "Nagpur, Maharashtra (M.H) India",
+    iconSrc: "/assets/contact/technical-support_11683681 1.png",
+  },
+];
+
+export const socialLinks: SocialLink[] = [
+  {
+    label: "LinkedIn",
+    href: "#",
+    iconSrc: "/assets/social/1377213 1.png",
+  },
+  {
+    label: "Instagram",
+    href: "#",
+    iconSrc: "/assets/social/instagram_2626270 (3) 1.png",
+  },
+  {
+    label: "Facebook",
+    href: "#",
+    iconSrc: "/assets/social/communication_15047435 (1) 1.png",
+  },
+  {
+    label: "Twitter",
+    href: "#",
+    iconSrc: "/assets/social/twitter_5968830 2.png",
   },
 ];
 

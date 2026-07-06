@@ -7,14 +7,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: "#3B2FE0",
-          light: "#5B4FF5",
-          dark: "#241C9E",
+        brand: "#3B43FF",
+        primary: {
+          DEFAULT: "#3B43FF",
+          dark: "#272EFF",
+          light: "#5C63FF",
         },
-        ink: "#0B0B12",
+        secondary: "#7D7BFF",
+        accent: "#B9BEFF",
+        background: "#FFFFFF",
+        backgroundLight: "#F8F9FF",
+        surface: "#F8F9FF",
+        border: "#E8EAFF",
+        heading: "#1B1B1F",
+        paragraph: "#6B7280",
+        ink: "#1B1B1F",
         muted: "#6B7280",
-        surface: "#F6F6FB",
       },
       fontFamily: {
         sans: [
@@ -29,13 +37,15 @@ const config: Config = {
         ],
       },
       backgroundImage: {
-        "brand-gradient": "linear-gradient(135deg, #4338F5 0%, #6C5CE7 50%, #2E1FC7 100%)",
-        "brand-gradient-soft": "linear-gradient(135deg, #EEF0FF 0%, #E2E0FF 100%)",
+        "brand-gradient": "linear-gradient(90deg,#3B43FF,#4B4FFF,#6165FF)",
+        "brand-gradient-soft": "linear-gradient(135deg, #EEF0FF 0%, #F8F9FF 100%)",
+        "hero": "linear-gradient(135deg,#FFFFFF,#F6F7FF,#ECEEFF)",
+        "hero-illustration": "linear-gradient(135deg,#8D90FF,#575CFF,#343CFF,#2028F8)",
       },
       boxShadow: {
-        "3d": "0 1px 0 rgba(255,255,255,0.6) inset, 0 -6px 14px rgba(59,47,224,0.15) inset, 0 20px 35px -12px rgba(59,47,224,0.35)",
-        "card": "0 10px 30px -12px rgba(20,20,50,0.12)",
-        "card-hover": "0 20px 45px -15px rgba(59,47,224,0.30)",
+        "3d": "0 1px 0 rgba(255,255,255,0.6) inset, 0 -6px 14px rgba(59,67,255,0.15) inset, 0 20px 35px -12px rgba(59,67,255,0.35)",
+        "card": "0 10px 25px rgba(0,0,0,0.05)",
+        "card-hover": "0 18px 30px rgba(59,67,255,0.15)",
       },
       keyframes: {
         float: {
