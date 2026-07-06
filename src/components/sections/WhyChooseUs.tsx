@@ -11,7 +11,7 @@ export default function WhyChooseUs() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold text-heading sm:text-4xl">
             Why Choose{" "}
-            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text text-transparent">
+            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text">
               Techrytham
             </span>
           </h2>

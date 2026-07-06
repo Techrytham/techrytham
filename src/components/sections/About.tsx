@@ -16,7 +16,7 @@ export default function About() {
             <Eyebrow>About Us</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
               We&apos;re More Than Just A{" "}
-              <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text text-transparent">
+              <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text">
                 Digital Agency
               </span>
             </h2>

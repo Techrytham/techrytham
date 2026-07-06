@@ -24,7 +24,7 @@ export default function Testimonials() {
             <Eyebrow>Testimonials</Eyebrow>
             <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
               What Our{" "}
-              <span className="bg-[var(--button-gradient)] bg-clip-text text-transparent">Clients</span>
+              <span className="bg-[var(--button-gradient)] bg-clip-text">Clients</span>
               <br /> Say About Us
             </h2>
             <span className="mt-4 block h-1 w-14 rounded-full bg-[var(--button-gradient)]" />

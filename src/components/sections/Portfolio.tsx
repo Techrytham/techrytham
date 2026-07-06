@@ -17,7 +17,7 @@ export default function Portfolio() {
           <Eyebrow>Portfolio</Eyebrow>
           <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
             Featured{" "}
-            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text text-transparent">
+            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text">
               Projects
             </span>{" "}
             We&apos;re Proud Of

@@ -39,7 +39,7 @@ export default function Process() {
           <Eyebrow>Process</Eyebrow>
           <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
             Our Process. Your{" "}
-            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text text-transparent">
+            <span className=" text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text">
               Success
             </span>
             .
