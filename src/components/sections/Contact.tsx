@@ -127,7 +127,7 @@ export default function Contact() {
             />
             <button
               type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[var(--button-gradient)] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_-8px_rgba(59,67,255,0.55)] transition-transform hover:-translate-y-0.5"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(90deg,#8E8EDC_0%,#0000FF_100%)] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_-8px_rgba(59,67,255,0.55)] transition-transform hover:-translate-y-0.5"
             >
               Send Message <Send size={16} />
             </button>
