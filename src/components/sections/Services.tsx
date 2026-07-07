@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import ServiceSpriteIcon from "@/components/ui/ServiceSpriteIcon";
 import { services } from "@/data/siteData";
-
+import Image from "next/image";
 export default function Services() {
   return (
     <section id="services" className="bg-white py-20">
@@ -36,10 +36,10 @@ export default function Services() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-7"
             >
-              <ServiceSpriteIcon
-                col={service.spriteCol}
-                row={service.spriteRow}
+              <img
+                src={service.icon}
                 alt={service.title}
+                className="h-12 w-12 object-contain"
               />
               <h3 className="mt-5 text-base font-semibold text-heading">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-paragraph">{service.description}</p>

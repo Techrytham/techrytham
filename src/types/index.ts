@@ -1,8 +1,7 @@
 export interface ServiceItem {
   title: string;
   description: string;
-  spriteCol: number;
-  spriteRow?: number;
+  icon?: string;
 }
 
 export interface WhyChooseItem {

@@ -25,29 +25,26 @@ export const services: ServiceItem[] = [
     title: "Website Development",
     description:
       "Fast, responsive, and SEO-friendly websites built using modern technologies.",
-    spriteCol: 0,
-    spriteRow: 0,
+     icon: "/assets/services/1.png"
+    
   },
   {
     title: "App Development",
     description:
       "Native and cross-platform Android & iOS applications with premium user experience.",
-    spriteCol: 1,
-    spriteRow: 0,
+     icon: "/assets/services/2.png"
   },
   {
     title: "Digital Marketing",
     description:
       "Performance-driven marketing strategies to increase traffic, leads, and revenue.",
-    spriteCol: 3,
-    spriteRow: 0,
+     icon: "/assets/services/3.png"
   },
   {
     title: "Graphics Designing",
     description:
       "Beautiful, user-centered interfaces that improve engagement and conversions.",
-    spriteCol: 2,
-    spriteRow: 0,
+     icon: "/assets/services/4.png"
   },
 ];
 
