@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "@/components/ui/Logo";
 import Button from "@/components/ui/Button";
 import { navLinks } from "@/data/siteData";
@@ -10,12 +12,23 @@ import { navLinks } from "@/data/siteData";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const isLinkActive = (href: string) => {
+    if (href === "/blogs") {
+      return pathname.startsWith("/blogs");
+    }
+    if (href === "/#home") {
+      return pathname === "/";
+    }
+    return false;
+  };
 
   return (
     <motion.header
@@ -27,27 +40,30 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
-        <a href="#home">
+        <Link href="/">
           <Logo />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link, i) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-brand ${
-                  i === 0 ? "text-brand" : "text-ink/80"
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {navLinks.map((link) => {
+            const active = isLinkActive(link.href);
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors hover:text-brand ${
+                    active ? "text-brand" : "text-ink/80"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="hidden lg:block">
-          <Button href="#contact" icon={<ArrowRight size={16} />}>
+          <Button href="/#contact" icon={<ArrowRight size={16} />}>
             Contact Us
           </Button>
         </div>
@@ -69,19 +85,29 @@ export default function Navbar() {
           className="border-t border-black/5 bg-white px-6 py-4 lg:hidden"
         >
           <ul className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-sm font-medium text-ink/80 hover:text-brand"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const active = isLinkActive(link.href);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`block text-sm font-medium transition-colors ${
+                      active ? "text-brand" : "text-ink/80 hover:text-brand"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
             <li>
-              <Button href="#contact" className="w-full justify-center" icon={<ArrowRight size={16} />}>
+              <Button
+                href="/#contact"
+                className="w-full justify-center"
+                icon={<ArrowRight size={16} />}
+                onClick={() => setOpen(false)}
+              >
                 Contact Us
               </Button>
             </li>

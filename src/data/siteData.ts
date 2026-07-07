@@ -258,19 +258,19 @@ export const stats = [
 ];
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About Us", href: "#about" },
-  { label: "Blogs", href: "#blogs" },
-  { label: "Our Work", href: "#portfolio" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "About Us", href: "/#about" },
+  { label: "Blogs", href: "/blogs" },
+  { label: "Our Work", href: "/#portfolio" },
 ];
 
 export const quickLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "About Us", href: "#about" },
-  { label: "Our Work", href: "#portfolio" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "Services", href: "/#services" },
+  { label: "About Us", href: "/#about" },
+  { label: "Our Work", href: "/#portfolio" },
+  { label: "Contact Us", href: "/#contact" },
 ];
 
 export const footerServices = [

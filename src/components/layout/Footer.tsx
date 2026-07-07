@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Logo from "@/components/ui/Logo";
 import {
   quickLinks,
@@ -23,7 +24,9 @@ export default function Footer() {
             <div className="grid gap-10 lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.25fr)] lg:gap-0">
               {/* Brand */}
               <div className="lg:border-r lg:border-border lg:pr-8">
-                <Logo />
+                <Link href="/">
+                  <Logo />
+                </Link>
                 <p className="mt-4 max-w-[240px] text-sm leading-relaxed text-paragraph">
                   We build digital solutions that help businesses grow, engage their audience
                   and achieve long-term success.
@@ -56,12 +59,12 @@ export default function Footer() {
                 <ul className="space-y-2.5">
                   {quickLinks.map((l) => (
                     <li key={l.label}>
-                      <a
+                      <Link
                         href={l.href}
                         className="text-sm text-paragraph transition-colors hover:text-primary"
                       >
                         {l.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -73,12 +76,12 @@ export default function Footer() {
                 <ul className="space-y-2.5">
                   {footerServices.map((s) => (
                     <li key={s}>
-                      <a
-                        href="#services"
+                      <Link
+                        href="/#services"
                         className="text-sm text-paragraph transition-colors hover:text-primary"
                       >
                         {s}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
