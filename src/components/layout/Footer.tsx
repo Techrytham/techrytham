@@ -10,6 +10,13 @@ import {
 } from "@/data/siteData";
 
 const footerSocialOrder = ["Instagram", "LinkedIn", "Facebook", "Twitter"];
+const supportHrefs: Record<string, string> = {
+  FAQ: "/faq",
+  "Privacy Policy": "/privacy-policy",
+  "Terms & Conditions": "/terms-and-conditions",
+  "Refund Policy": "/refund-policy",
+  "Support Center": "/support-center",
+};
 
 export default function Footer() {
   const orderedSocial = footerSocialOrder
@@ -93,12 +100,12 @@ export default function Footer() {
                 <ul className="space-y-2.5">
                   {supportLinks.map((s) => (
                     <li key={s}>
-                      <a
-                        href="#"
+                      <Link
+                        href={supportHrefs[s]}
                         className="text-sm text-paragraph transition-colors hover:text-primary"
                       >
                         {s}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
