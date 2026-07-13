@@ -82,7 +82,7 @@ Embracing these trends is no longer optional for businesses aiming to remain com
     excerpt: "Learn how artificial intelligence helps businesses automate processes, optimize decision making, and improve productivity.",
     category: "AI",
     date: "July 5, 2026",
-    image: "https://images.unsplash.com/photo-1677442136019-21780efad99a?q=80&w=800&auto=format&fit=crop",
+  image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop",
     readTime: "6 min read",
     author: {
       name: "Sarah Chen",
@@ -124,7 +124,7 @@ The companies that succeed in the next decade are those that view AI not as a re
     excerpt: "Create faster, responsive, and user-friendly websites with modern UI/UX design techniques and coding standards.",
     category: "Web Development",
     date: "July 5, 2026",
-    image: "https://images.unsplash.com/photo-1541462608141-2f523ea4e4e5?q=80&w=800&auto=format&fit=crop",
+   image: "https://images.unsplash.com/photo-1559028006-448665bd7c7f?q=80&w=800&auto=format&fit=crop",
     readTime: "4 min read",
     author: {
       name: "Marcus Aurelius",
@@ -352,7 +352,7 @@ RAG is the standard approach for injecting private enterprise data into a genera
     excerpt: "What search engines prioritize today, and how to optimize your web application for organic generative search visibility.",
     category: "Digital Marketing",
     date: "June 24, 2026",
-    image: "https://images.unsplash.com/photo-1571721795195-a2ca2d33e402?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?q=80&w=800&auto=format&fit=crop",
     readTime: "5 min read",
     author: {
       name: "Emma Watson",
