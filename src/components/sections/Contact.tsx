@@ -1,10 +1,22 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Twitter, Share2 } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { contactInfo, socialLinks } from "@/data/siteData";
+
+const contactIconMap: Record<string, any> = {
+  Email: Mail,
+  "Call us": Phone,
+  Location: MapPin,
+};
+
+const socialIconMap: Record<string, any> = {
+  LinkedIn: Linkedin,
+  Instagram: Instagram,
+  Facebook: Facebook,
+  Twitter: Twitter,
+};
 
 export default function Contact() {
   return (
@@ -31,59 +43,47 @@ export default function Contact() {
             </p>
 
             <div className="mt-8 space-y-6">
-              {contactInfo.map((item) => (
-                <div key={item.title} className="flex items-center gap-4">
-                  <div className="icon-3d-wrap shrink-0">
-                    <div className="icon-3d relative h-11 w-11">
-                      <Image
-                        src={item.iconSrc}
-                        alt={item.title}
-                        fill
-                        className="object-contain"
-                        sizes="44px"
-                      />
+              {contactInfo.map((item) => {
+                const IconComponent = contactIconMap[item.title] || Mail;
+                return (
+                  <div key={item.title} className="flex items-center gap-4">
+                    <div className="icon-3d-wrap shrink-0">
+                      <div className="icon-3d flex h-11 w-11 items-center justify-center rounded-2xl bg-brand/5 border border-brand/10 text-primary">
+                        <IconComponent size={20} strokeWidth={2} />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-sm font-bold text-heading">{item.title}</p>
+                      <p className="text-sm text-paragraph">{item.value}</p>
                     </div>
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-heading">{item.title}</p>
-                    <p className="text-sm text-paragraph">{item.value}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
 
               <div className="flex items-center gap-4">
                 <div className="icon-3d-wrap shrink-0">
-                  <div className="icon-3d relative h-11 w-11">
-                    <Image
-                      src="/assets/contact/follow-us_5969080 1.png"
-                      alt="Follow us"
-                      fill
-                      className="object-contain"
-                      sizes="44px"
-                    />
+                  <div className="icon-3d flex h-11 w-11 items-center justify-center rounded-2xl bg-brand/5 border border-brand/10 text-primary">
+                    <Share2 size={20} strokeWidth={2} />
                   </div>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-heading">Follow us</p>
-                  <div className="mt-1 flex gap-2">
-                    {socialLinks.map((social) => (
-                      <a
-                        key={social.label}
-                        href={social.href}
-                        aria-label={social.label}
-                        className="icon-3d-wrap"
-                      >
-                        <div className="icon-3d relative h-8 w-8 transition-opacity hover:opacity-80">
-                          <Image
-                            src={social.iconSrc}
-                            alt={social.label}
-                            fill
-                            className="object-contain"
-                            sizes="32px"
-                          />
-                        </div>
-                      </a>
-                    ))}
+                  <p className="text-sm font-bold text-heading">Follow us</p>
+                  <div className="mt-2.5 flex gap-3">
+                    {socialLinks.map((social) => {
+                      const SocialIcon = socialIconMap[social.label] || Share2;
+                      return (
+                        <a
+                          key={social.label}
+                          href={social.href}
+                          aria-label={social.label}
+                          className="icon-3d-wrap"
+                        >
+                          <div className="icon-3d flex h-8 w-8 items-center justify-center rounded-xl bg-white border border-[#ECECFF] text-[#4C4C57] transition-all hover:bg-brand hover:border-brand hover:text-white hover:shadow-sm">
+                            <SocialIcon size={15} strokeWidth={2} />
+                          </div>
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -125,12 +125,14 @@ export default function Contact() {
               rows={5}
               className="mt-5 w-full resize-none rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
             />
-            <button
-              type="submit"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[linear-gradient(90deg,#8E8EDC_0%,#0000FF_100%)] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_-8px_rgba(59,67,255,0.55)] transition-transform hover:-translate-y-0.5"
-            >
-              Send Message <Send size={16} />
-            </button>
+            <div className="mt-6 flex justify-center">
+              <button
+                type="submit"
+                className="inline-flex items-center gap-2 rounded-full bg-[linear-gradient(90deg,#8E8EDC_0%,#0000FF_100%)] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_25px_-8px_rgba(59,67,255,0.55)] transition-transform hover:-translate-y-0.5"
+              >
+                Send Message <Send size={16} />
+              </button>
+            </div>
           </motion.form>
         </div>
       </div>

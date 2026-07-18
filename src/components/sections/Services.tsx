@@ -6,6 +6,7 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import ServiceSpriteIcon from "@/components/ui/ServiceSpriteIcon";
 import { services } from "@/data/siteData";
 import Image from "next/image";
+import Link from "next/link";
 export default function Services() {
   return (
     <section id="services" className="bg-white py-20">
@@ -48,12 +49,12 @@ export default function Services() {
         </div>
 
         <div className="mt-10 text-center">
-          <a
-            href="#portfolio"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline"
           >
             LEARN MORE <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </div>
     </section>

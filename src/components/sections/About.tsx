@@ -44,7 +44,7 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-6"
               >
-                <AssetIcon src={card.iconSrc} alt={card.title} size="sm" />
+                <AssetIcon src={card.iconSrc} alt={card.title} size="lg" />
                 <h3 className="mt-4 text-sm font-semibold text-heading">{card.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-paragraph">{card.description}</p>
                 <a

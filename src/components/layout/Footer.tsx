@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/components/ui/Logo";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Twitter, Share2 } from "lucide-react";
 import {
   quickLinks,
   footerServices,
@@ -16,6 +16,19 @@ const supportHrefs: Record<string, string> = {
   "Terms & Conditions": "/terms-and-conditions",
   "Refund Policy": "/refund-policy",
   "Support Center": "/support-center",
+};
+
+const contactIconMap: Record<string, any> = {
+  Email: Mail,
+  "Call us": Phone,
+  Location: MapPin,
+};
+
+const socialIconMap: Record<string, any> = {
+  LinkedIn: Linkedin,
+  Instagram: Instagram,
+  Facebook: Facebook,
+  Twitter: Twitter,
 };
 
 export default function Footer() {
@@ -39,24 +52,19 @@ export default function Footer() {
                   and achieve long-term success.
                 </p>
                 <div className="mt-5 flex gap-2.5">
-                  {orderedSocial.map((social) => (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      aria-label={social.label}
-                      className="flex h-9 w-9 items-center justify-center rounded-full transition-opacity hover:opacity-80"
-                    >
-                      <div className="relative h-9 w-9">
-                        <Image
-                          src={social.iconSrc}
-                          alt={social.label}
-                          fill
-                          className="object-contain"
-                          sizes="36px"
-                        />
-                      </div>
-                    </a>
-                  ))}
+                  {orderedSocial.map((social) => {
+                    const SocialIcon = socialIconMap[social.label] || Share2;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        aria-label={social.label}
+                        className="flex h-9 w-9 items-center justify-center rounded-full bg-brand/5 border border-brand/10 text-primary transition-all hover:bg-brand hover:border-brand hover:text-white hover:shadow-sm"
+                      >
+                        <SocialIcon size={16} strokeWidth={2} />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -115,20 +123,17 @@ export default function Footer() {
               <div className="lg:pl-8">
                 <h4 className="mb-4 text-sm font-bold text-heading">Contact info</h4>
                 <ul className="space-y-4">
-                  {contactInfo.map((item) => (
-                    <li key={item.title} className="flex items-start gap-3">
-                      <div className="relative mt-0.5 h-9 w-9 shrink-0">
-                        <Image
-                          src={item.iconSrc}
-                          alt={item.title}
-                          fill
-                          className="object-contain"
-                          sizes="36px"
-                        />
-                      </div>
-                      <span className="text-sm leading-relaxed text-paragraph">{item.value}</span>
-                    </li>
-                  ))}
+                  {contactInfo.map((item) => {
+                    const IconComponent = contactIconMap[item.title] || Mail;
+                    return (
+                      <li key={item.title} className="flex items-start gap-3">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand/5 border border-brand/10 text-primary">
+                          <IconComponent size={15} strokeWidth={2} />
+                        </div>
+                        <span className="text-sm leading-relaxed text-paragraph">{item.value}</span>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>

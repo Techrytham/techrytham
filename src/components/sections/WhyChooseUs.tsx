@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {whyChooseUs.map((item, i) => (
             <motion.div
               key={item.title}
@@ -31,10 +31,12 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.12 }}
-              className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-7"
+              className="glow-card popout-card rounded-[18px] border border-[#ECECFF] bg-white p-7"
             >
-              <AssetIcon src={item.iconSrc} alt={item.title} size="lg" />
-              <h3 className="mt-5 text-base font-semibold text-heading">{item.title}</h3>
+              <div className="popout-icon-wrap">
+                <AssetIcon src={item.iconSrc} alt={item.title} size="xl" />
+              </div>
+              <h3 className="text-base font-bold text-heading">{item.title}</h3>
               <span className="mt-2 block h-0.5 w-8 rounded-full bg-[var(--button-gradient)]" />
               <p className="mt-3 text-sm leading-relaxed text-paragraph">{item.description}</p>
             </motion.div>

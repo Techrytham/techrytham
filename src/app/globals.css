@@ -11,6 +11,7 @@ html {
   --brand-light: #5B4FF5;
   --brand-dark: #241C9E;
   --brand-gradient: linear-gradient(135deg, #4338F5 0%, #6C5CE7 50%, #2E1FC7 100%);
+  --button-gradient: linear-gradient(90deg, #8E8EDC 0%, #0000FF 100%);
 }
 
 body {
@@ -100,3 +101,23 @@ button:focus-visible {
     display: none;
   }
 }
+
+/* Why Choose Us 3D layout popout utility classes */
+.popout-card {
+  position: relative;
+  margin-top: 2rem;
+  padding-top: 3.5rem !important;
+}
+
+.popout-icon-wrap {
+  position: absolute;
+  top: -2rem;
+  left: 1.75rem;
+  z-index: 10;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.popout-card:hover .popout-icon-wrap {
+  transform: translateY(-6px) rotate(-3deg) scale(1.05);
+}
+

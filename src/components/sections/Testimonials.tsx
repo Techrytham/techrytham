@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
@@ -10,6 +10,13 @@ import { testimonials } from "@/data/siteData";
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((v) => (v + 1) % testimonials.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   const visible = [testimonials[index % testimonials.length], testimonials[(index + 1) % testimonials.length]];
 

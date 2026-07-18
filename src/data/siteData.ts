@@ -139,7 +139,7 @@ export const portfolioItems: PortfolioItem[] = [
     description:
       "A modern e-learning platform with interactive courses and student dashboard.",
     tag: "Unlock your learning potential",
-    image: "/images/portfolio-eduvision.svg",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=800&auto=format&fit=crop",
     size: "large",
   },
   {
@@ -147,7 +147,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Mobile App",
     description: "Healthcare app for booking appointments and managing health records.",
     tag: "The Heroines of health care",
-    image: "/images/portfolio-medicare.svg",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
     size: "small",
   },
   {
@@ -155,7 +155,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "UI/UX Design",
     description: "Creative agency website designed for a modern and bold brand identity.",
     tag: "Build Your Company",
-    image: "/images/portfolio-brandcraft.svg",
+    image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=800&auto=format&fit=crop",
     size: "small",
   },
 ];
@@ -236,17 +236,17 @@ export const socialLinks: SocialLink[] = [
   },
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/techrytham?igsh=MmRiM3VkN3I2Z29o",
     iconSrc: "/assets/social/instagram_2626270 (3) 1.png",
   },
   {
     label: "Facebook",
-    href: "#",
+    href: "https://www.facebook.com/share/14VRv34r1CM/",
     iconSrc: "/assets/social/communication_15047435 (1) 1.png",
   },
   {
     label: "Twitter",
-    href: "#",
+    href: "https://x.com/techrythamX",
     iconSrc: "/assets/social/twitter_5968830 2.png",
   },
 ];

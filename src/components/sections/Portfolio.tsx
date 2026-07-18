@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -8,7 +9,17 @@ import Button from "@/components/ui/Button";
 import { portfolioItems } from "@/data/siteData";
 
 export default function Portfolio() {
-  const [large, ...rest] = portfolioItems;
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % portfolioItems.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const activeItem = portfolioItems[activeIndex];
+  const otherItems = portfolioItems.filter((_, idx) => idx !== activeIndex);
 
   return (
     <section id="portfolio" className="bg-white pb-20">
@@ -30,51 +41,68 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            className="glow-card overflow-hidden rounded-[18px] border border-[#ECECFF] bg-white"
-          >
-            <div className="relative h-64 w-full">
-              <Image src={large.image} alt={large.title} fill className="object-cover" />
-            </div>
-            <div className="p-6">
-              <h3 className="text-lg font-semibold text-heading">{large.title}</h3>
-              <p className="mt-2 text-sm text-paragraph">{large.description}</p>
-              <a
-                href="#"
-                className="mt-3 inline-block text-sm font-semibold text-primary hover:underline"
-              >
-                {large.category}
-              </a>
-            </div>
-          </motion.div>
+        {/* Layout with 1 Large Card and 2 Small Cards */}
+        <div className="mt-14 grid gap-6 lg:grid-cols-2 items-stretch min-h-[500px]">
+          {/* Large Card Column */}
+          <div className="h-full">
+            <motion.div
+              layout
+              layoutId={`card-${activeItem.title}`}
+              key={activeItem.title}
+              transition={{ type: "spring", stiffness: 65, damping: 20, mass: 1.1 }}
+              className="glow-card overflow-hidden rounded-[18px] border border-[#ECECFF] bg-white h-full flex flex-col justify-between shadow-sm"
+            >
+              <div className="relative h-64 sm:h-80 lg:h-96 w-full overflow-hidden">
+                <Image
+                  src={activeItem.image}
+                  alt={activeItem.title}
+                  fill
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+              <div className="p-6">
+                <span className="text-xs font-semibold text-primary/80 tracking-wider uppercase">
+                  {activeItem.category}
+                </span>
+                <h3 className="mt-2 text-xl font-bold text-heading">{activeItem.title}</h3>
+                <p className="mt-2 text-sm text-paragraph leading-relaxed">{activeItem.description}</p>
+                <span className="mt-3 inline-block text-xs font-bold text-primary px-3 py-1 bg-brand/5 rounded-full uppercase tracking-wider">
+                  {activeItem.tag}
+                </span>
+              </div>
+            </motion.div>
+          </div>
 
-          <div className="grid grid-rows-2 gap-6">
-            {rest.map((item, i) => (
+          {/* Small Cards Column */}
+          <div className="grid grid-rows-2 gap-6 h-full">
+            {otherItems.map((item) => (
               <motion.div
+                layout
+                layoutId={`card-${item.title}`}
                 key={item.title}
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="glow-card flex overflow-hidden rounded-[18px] border border-[#ECECFF] bg-white"
+                transition={{ type: "spring", stiffness: 65, damping: 20, mass: 1.1 }}
+                className="glow-card flex overflow-hidden rounded-[18px] border border-[#ECECFF] bg-white h-full shadow-sm"
               >
-                <div className="relative h-full w-2/5 min-h-[130px]">
-                  <Image src={item.image} alt={item.title} fill className="object-cover" />
+                <div className="relative h-full w-2/5 min-h-[140px] overflow-hidden shrink-0">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    sizes="(max-width: 1024px) 40vw, 20vw"
+                  />
                 </div>
-                <div className="w-3/5 p-5">
-                  <h3 className="text-base font-semibold text-heading">{item.title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed text-paragraph">{item.description}</p>
-                  <a
-                    href="#"
-                    className="mt-2 inline-block text-xs font-semibold text-primary hover:underline"
-                  >
+                <div className="w-3/5 p-5 flex flex-col justify-center">
+                  <span className="text-[10px] font-semibold text-primary/80 tracking-wider uppercase">
                     {item.category}
-                  </a>
+                  </span>
+                  <h3 className="mt-1 text-base font-bold text-heading">{item.title}</h3>
+                  <p className="mt-1.5 text-xs leading-relaxed text-paragraph line-clamp-2">{item.description}</p>
+                  <span className="mt-2 text-[10px] font-bold text-primary/70">
+                    {item.tag}
+                  </span>
                 </div>
               </motion.div>
             ))}
