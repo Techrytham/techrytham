@@ -92,7 +92,7 @@ export default function Footer() {
                   {footerServices.map((s) => (
                     <li key={s}>
                       <Link
-                        href="/#services"
+                        href="/services"
                         className="text-sm text-paragraph transition-colors hover:text-primary"
                       >
                         {s}
@@ -127,10 +127,44 @@ export default function Footer() {
                     const IconComponent = contactIconMap[item.title] || Mail;
                     return (
                       <li key={item.title} className="flex items-start gap-3">
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand/5 border border-brand/10 text-primary">
-                          <IconComponent size={15} strokeWidth={2} />
-                        </div>
-                        <span className="text-sm leading-relaxed text-paragraph">{item.value}</span>
+                        {item.title === "Call us" ? (
+                          <a
+                            href="https://wa.me/916260324715"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand/5 border border-brand/10 text-primary hover:bg-brand/10 hover:border-brand/30 transition-all animate-pulse-slow"
+                            title="Chat on WhatsApp"
+                          >
+                            <IconComponent size={15} strokeWidth={2} />
+                          </a>
+                        ) : (
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-brand/5 border border-brand/10 text-primary">
+                            <IconComponent size={15} strokeWidth={2} />
+                          </div>
+                        )}
+                        {item.title === "Call us" ? (
+                          <span className="text-sm leading-relaxed text-paragraph">
+                            <a
+                              href="https://wa.me/916260324715"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-primary transition-colors font-medium underline decoration-brand/20 decoration-2 underline-offset-2"
+                            >
+                              +91-6260324715
+                            </a>
+                            {" / "}
+                            <a
+                              href="https://wa.me/919039135773"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-primary transition-colors font-medium underline decoration-brand/20 decoration-2 underline-offset-2"
+                            >
+                              +91-9039135773
+                            </a>
+                          </span>
+                        ) : (
+                          <span className="text-sm leading-relaxed text-paragraph">{item.value}</span>
+                        )}
                       </li>
                     );
                   })}

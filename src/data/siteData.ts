@@ -12,12 +12,19 @@ import type {
 
 export const technologies: TechItem[] = [
   { name: "React", icon: "react" },
+  { name: "Next.js", icon: "nextjs" },
+  { name: "TypeScript", icon: "typescript" },
   { name: "Node.js", icon: "nodejs" },
   { name: "Python", icon: "python" },
   { name: "Flutter", icon: "flutter" },
   { name: "MongoDB", icon: "mongodb" },
+  { name: "PostgreSQL", icon: "postgresql" },
   { name: "Firebase", icon: "firebase" },
+  { name: "GraphQL", icon: "graphql" },
+  { name: "Docker", icon: "docker" },
+  { name: "Tailwind", icon: "tailwind" },
   { name: "AWS", icon: "aws" },
+  { name: "Git", icon: "git" },
 ];
 
 export const services: ServiceItem[] = [
@@ -218,7 +225,7 @@ export const contactInfo: ContactInfoItem[] = [
   },
   {
     title: "Call us",
-    value: "+91-9685933664 / +91-9039135773",
+    value: "+91-6260324715 / +91-9039135773",
     iconSrc: "/assets/contact/call_3575348 1.png",
   },
   {
@@ -259,7 +266,7 @@ export const stats = [
 
 export const navLinks = [
   { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "About Us", href: "/#about" },
   { label: "Blogs", href: "/blogs" },
   { label: "Our Work", href: "/#portfolio" },
@@ -267,7 +274,7 @@ export const navLinks = [
 
 export const quickLinks = [
   { label: "Home", href: "/#home" },
-  { label: "Services", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "About Us", href: "/#about" },
   { label: "Our Work", href: "/#portfolio" },
   { label: "Contact Us", href: "/#contact" },

@@ -14,7 +14,8 @@ export default function Services() {
         <div className="mx-auto max-w-2xl text-center">
           <Eyebrow>Services</Eyebrow>
           <h2 className="mt-5 text-3xl font-bold text-heading sm:text-4xl">
-            End-to-End Digital Solution for Your{" "}
+            End-to-End Digital Solution for
+            <br /> Your{" "}
             <span className="text-[#0000FF] bg-[var(--button-gradient)] bg-clip-text">
               Business
             </span>
@@ -35,13 +36,15 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-7"
+              className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-7 flex flex-col items-start"
             >
-              <img
-                src={service.icon}
-                alt={service.title}
-                className="h-12 w-12 object-contain"
-              />
+              <div className="relative h-24 w-24 shrink-0">
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  className="h-full w-full object-contain"
+                />
+              </div>
               <h3 className="mt-5 text-base font-semibold text-heading">{service.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-paragraph">{service.description}</p>
             </motion.div>

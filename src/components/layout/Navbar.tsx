@@ -24,6 +24,9 @@ export default function Navbar() {
     if (href === "/blogs") {
       return pathname.startsWith("/blogs");
     }
+    if (href === "/services") {
+      return pathname.startsWith("/services");
+    }
     if (href === "/#home") {
       return pathname === "/";
     }

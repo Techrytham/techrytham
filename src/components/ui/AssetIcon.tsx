@@ -3,7 +3,7 @@ import Image from "next/image";
 interface AssetIconProps {
   src: string;
   alt: string;
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl" | "2xl";
   with3D?: boolean;
   className?: string;
 }
@@ -13,6 +13,7 @@ const sizeMap = {
   md: "h-14 w-14",
   lg: "h-16 w-16",
   xl: "h-20 w-20",
+  "2xl": "h-32 w-32",
 };
 
 export default function AssetIcon({

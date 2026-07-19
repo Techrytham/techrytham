@@ -61,15 +61,15 @@ const config: Config = {
           to: { transform: "rotate(360deg)" },
         },
         marquee: {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(-50%)" },
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       animation: {
         float: "float 6s ease-in-out infinite",
         floatSlow: "floatSlow 5s ease-in-out infinite",
         spinSlow: "spinSlow 14s linear infinite",
-        marquee: "marquee 25s linear infinite",
+        marquee: "marquee 35s linear infinite",
       },
     },
   },

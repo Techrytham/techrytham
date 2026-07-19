@@ -28,9 +28,14 @@ export default function About() {
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-5">
               <Button href="#contact">Learn More About Us</Button>
-              <button className="flex items-center gap-2 text-sm font-semibold text-heading hover:text-primary">
+              <a
+                href="https://youtube.com/@techrytham?si=8KV6UAIizMiAlciO"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm font-semibold text-heading hover:text-primary"
+              >
                 <PlayCircle size={22} className="text-primary" /> Watch Our Story
-              </button>
+              </a>
             </div>
           </div>
 
@@ -44,7 +49,11 @@ export default function About() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-6"
               >
-                <AssetIcon src={card.iconSrc} alt={card.title} size="lg" />
+                <AssetIcon
+                  src={card.iconSrc}
+                  alt={card.title}
+                  size={card.title === "Our Mission" || card.title === "Our Vision" ? "2xl" : "lg"}
+                />
                 <h3 className="mt-4 text-sm font-semibold text-heading">{card.title}</h3>
                 <p className="mt-2 text-xs leading-relaxed text-paragraph">{card.description}</p>
                 <a

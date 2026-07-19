@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Twitter, Share2 } from "lucide-react";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -19,6 +20,41 @@ const socialIconMap: Record<string, any> = {
 };
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [error, setError] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+    setError("");
+
+    const whatsappNumber = "916260324715";
+    const text =
+      `*New Inquiry from TechRytham Website*\n\n` +
+      `👤 *Name:* ${formData.name}\n` +
+      `📞 *Phone:* ${formData.phone || "Not provided"}\n` +
+      `📧 *Email:* ${formData.email}\n` +
+      `📌 *Subject:* ${formData.subject}\n\n` +
+      `💬 *Message:*\n${formData.message}`;
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setFormData({ name: "", phone: "", email: "", subject: "", message: "" });
+  };
+
   return (
     <section id="contact" className="bg-backgroundLight py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
@@ -47,14 +83,50 @@ export default function Contact() {
                 const IconComponent = contactIconMap[item.title] || Mail;
                 return (
                   <div key={item.title} className="flex items-center gap-4">
-                    <div className="icon-3d-wrap shrink-0">
-                      <div className="icon-3d flex h-11 w-11 items-center justify-center rounded-2xl bg-brand/5 border border-brand/10 text-primary">
-                        <IconComponent size={20} strokeWidth={2} />
+                    {item.title === "Call us" ? (
+                      <a
+                        href="https://wa.me/916260324715"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="icon-3d-wrap shrink-0 block"
+                        title="Chat on WhatsApp"
+                      >
+                        <div className="icon-3d flex h-11 w-11 items-center justify-center rounded-2xl bg-brand/5 border border-brand/10 text-primary hover:bg-brand/10 hover:border-brand/30 transition-all">
+                          <IconComponent size={20} strokeWidth={2} />
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="icon-3d-wrap shrink-0">
+                        <div className="icon-3d flex h-11 w-11 items-center justify-center rounded-2xl bg-brand/5 border border-brand/10 text-primary">
+                          <IconComponent size={20} strokeWidth={2} />
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <div>
                       <p className="text-sm font-bold text-heading">{item.title}</p>
-                      <p className="text-sm text-paragraph">{item.value}</p>
+                      {item.title === "Call us" ? (
+                        <p className="text-sm text-paragraph">
+                          <a
+                            href="https://wa.me/916260324715"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-primary transition-colors font-medium underline decoration-brand/20 decoration-2 underline-offset-2"
+                          >
+                            +91-6260324715
+                          </a>
+                          {" / "}
+                          <a
+                            href="https://wa.me/919039135773"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-primary transition-colors font-medium underline decoration-brand/20 decoration-2 underline-offset-2"
+                          >
+                            +91-9039135773
+                          </a>
+                        </p>
+                      ) : (
+                        <p className="text-sm text-paragraph">{item.value}</p>
+                      )}
                     </div>
                   </div>
                 );
@@ -95,36 +167,62 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-            onSubmit={(e) => e.preventDefault()}
+            onSubmit={handleSubmit}
             className="glow-card rounded-[18px] border border-[#ECECFF] bg-white p-8"
           >
             <div className="grid gap-5 sm:grid-cols-2">
               <input
                 type="text"
-                placeholder="Your Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name *"
+                required
                 className="rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
               <input
                 type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
                 placeholder="Your Phone"
                 className="rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
               />
             </div>
             <input
               type="email"
-              placeholder="Your Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Your Email *"
+              required
               className="mt-5 w-full rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
             />
             <input
               type="text"
-              placeholder="Your Subject"
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              placeholder="Your Subject *"
+              required
               className="mt-5 w-full rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
             />
             <textarea
-              placeholder="Your Message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message *"
+              required
               rows={5}
               className="mt-5 w-full resize-none rounded-xl border border-border bg-backgroundLight px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
             />
+
+            {error && (
+              <div className="mt-5 text-sm font-semibold text-red-600 bg-red-50 border border-red-200 px-4 py-2.5 rounded-xl text-center">
+                {error}
+              </div>
+            )}
+
             <div className="mt-6 flex justify-center">
               <button
                 type="submit"
