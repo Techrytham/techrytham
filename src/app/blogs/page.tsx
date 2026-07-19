@@ -110,7 +110,7 @@ export default function BlogsPage() {
     <>
       <Navbar />
 
-      <main className="bg-white min-h-screen pb-20">
+      <main className="bg-white min-h-screen pb-20 pt-[72px]">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-white py-14 lg:py-20 border-b border-[#ECECFF]">
           <div className="mx-auto max-w-7xl px-6 lg:px-10">

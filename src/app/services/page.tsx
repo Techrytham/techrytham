@@ -59,7 +59,7 @@ export default function ServicesPage() {
     <>
       <Navbar />
 
-      <main className="bg-white min-h-screen pb-20">
+      <main className="bg-white min-h-screen pb-20 pt-[72px]">
 
         {/* Hero Section — matches blog hero */}
         <section className="relative overflow-hidden bg-white py-14 lg:py-20 border-b border-[#ECECFF]">

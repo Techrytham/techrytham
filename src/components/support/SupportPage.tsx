@@ -41,7 +41,7 @@ export default function SupportPage({ eyebrow, title, description, kind, cards }
   return (
     <>
       <Navbar />
-      <main className="overflow-hidden bg-white">
+      <main className="overflow-hidden bg-white pt-[72px]">
         <section className="mx-auto grid max-w-7xl items-center gap-4 px-6 pb-12 pt-14 sm:px-10 lg:grid-cols-[1.1fr_.9fr] lg:pb-16 lg:pt-16">
           <div className="max-w-[650px]">
             <Eyebrow>{eyebrow}</Eyebrow>

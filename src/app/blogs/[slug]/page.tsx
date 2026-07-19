@@ -26,7 +26,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
     return (
       <>
         <Navbar />
-        <main className="bg-white min-h-[70vh] flex flex-col items-center justify-center py-20 px-6">
+        <main className="bg-white min-h-[70vh] flex flex-col items-center justify-center py-20 px-6 pt-[72px]">
           <h1 className="text-3xl font-extrabold text-heading">Post Not Found</h1>
           <p className="text-paragraph mt-3 max-w-md text-center">
             Sorry, the blog article you are looking for does not exist or has been moved.
@@ -169,7 +169,7 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
     <>
       <Navbar />
 
-      <main className="bg-white min-h-screen pb-20">
+      <main className="bg-white min-h-screen pb-20 pt-[72px]">
         
         {/* Article Header & Cover */}
         <article className="mx-auto max-w-4xl px-6 pt-10 sm:pt-14">

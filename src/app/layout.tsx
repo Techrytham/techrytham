@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Techrytham builds modern websites, scalable web applications, mobile apps, and custom software solutions that help businesses grow faster and smarter.",
   icons: {
-    icon: "/logo.png",
+    icon: "/assets/tr 1.png",
   },
 };
 

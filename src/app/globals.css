@@ -72,35 +72,7 @@ button:focus-visible {
   border-radius: 6px;
 }
 
-/* Hero decorative images positioning */
-.hero-decor {
-  position: absolute;
-  filter: drop-shadow(0 30px 60px rgba(59,47,224,0.12));
-  opacity: 0.95;
-  transform-origin: center;
-}
-.hero-decor-right {
-  right: -6%;
-  top: 6%;
-  width: auto;
-  height: 88%;
-  transform: translateX(6%);
-}
-.hero-decor-left {
-  left: 4%;
-  bottom: -6%;
-  width: 46%;
-  height: auto;
-  transform: translateX(-4%);
-  opacity: 0.85;
-}
 
-@media (max-width: 1024px) {
-  .hero-decor-right,
-  .hero-decor-left {
-    display: none;
-  }
-}
 
 /* Why Choose Us 3D layout popout utility classes */
 .popout-card {

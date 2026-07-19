@@ -20,7 +20,7 @@ export default function FaqPage() {
   const [open, setOpen] = useState<number | null>(0);
   return <>
     <Navbar />
-    <main className="overflow-hidden bg-white">
+    <main className="overflow-hidden bg-white pt-[72px]">
       <section className="mx-auto grid max-w-7xl items-center gap-4 px-6 pb-12 pt-14 sm:px-10 lg:grid-cols-[1.1fr_.9fr] lg:pb-16 lg:pt-16">
         <div className="max-w-[650px]"><Eyebrow>FAQ</Eyebrow><h1 className="mt-6 text-[42px] font-bold leading-[1.07] tracking-[-0.04em] text-black sm:text-5xl lg:text-[56px]">Frequently Asked<br /><span className="text-primary">Questions</span></h1><p className="mt-5 max-w-xl text-[17px] leading-relaxed text-[#272730] sm:text-lg">Have questions? We&apos;ve answered the most common queries about our services, process, pricing, and support.</p></div>
         <HelpIllustration kind="faq" />
