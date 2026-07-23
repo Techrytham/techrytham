@@ -20,22 +20,24 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-white"
+      className="relative overflow-hidden bg-gradient-to-br from-white via-[#F5F5FF] to-[#E8E8FF]"
       style={{ minHeight: "100vh" }}
     >
-      {/* Full-section background image */}
-      <Image
-        src="/assets/techrythm hero section.png"
-        alt=""
-        fill
-        className="object-cover object-right pointer-events-none select-none"
-        priority
-        aria-hidden
-      />
+      {/* Full-section background image — tablet and desktop */}
+      <div className="hidden md:block absolute inset-0">
+        <Image
+          src="/assets/techrythm hero section.png"
+          alt=""
+          fill
+          className="object-cover object-right pointer-events-none select-none"
+          priority
+          aria-hidden
+        />
+      </div>
 
       {/* Content — left half */}
       <div className="relative z-10 mx-auto flex h-full min-h-screen max-w-7xl items-center px-6 pt-24 pb-20 lg:px-10 lg:pt-32 lg:pb-28">
-        <div className="max-w-xl">
+        <div className="w-full lg:max-w-xl">
           {/* Eyebrow */}
           <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
             <Eyebrow>INOVATION – IMPLEMENT – INSPIRE</Eyebrow>
